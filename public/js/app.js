@@ -5,7 +5,7 @@ const fetchWeather = address => {
   either an error message or forcast description
   */
 
-  const url = `http://localhost:3000/weather?address=${address}`;
+  const url = `/weather?address=${address}`;
   
   return fetch(url)
     .then(res => res.json())
