@@ -24,7 +24,7 @@ app.use(express.static(publicDirectoryPath, {extensions: ['html']}));
 
 app.get('', (req, res) => {
   res.render('index.hbs', {
-    title: 'weather app',
+    title: 'Weather App',
     name: 'Mitra Nami'
   });
 });
@@ -39,8 +39,7 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
   res.render('help', {
     title: 'Help',
-    name: 'Mitra Nami',
-    msg: 'Enter your location'
+    name: 'Mitra Nami'
   });
 });
 
