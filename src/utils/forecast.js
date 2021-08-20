@@ -3,7 +3,7 @@ const request = require('postman-request');
 
 const forecast = (longitude, latitude, callback) => {
   const ACCESS_KEY = 'a671f07de68b6b8a54b1e4c5892cfbbb';
-  const system = 'f'; //temperature: Fahrenheit
+  const system = 'm'; //temperature: Fahrenheit
   const url = `http://api.weatherstack.com/current?access_key=${ACCESS_KEY}&query=${latitude},${longitude}&units=${system}`;
 
   request( {
@@ -22,9 +22,9 @@ const forecast = (longitude, latitude, callback) => {
       return;
     }
     const currentData = response.body.current;
-    const {temperature, feelslike, weather_descriptions: [weather_des]} = currentData;
+    const {temperature, feelslike, humidity, weather_descriptions: [weather_des]} = currentData;
     const data = (weather_des +
-    `. It is currently ${temperature} degrees out. It feels like ${feelslike} degrees out.`);
+    `. It is currently ${temperature} degrees out. It feels like ${feelslike} degrees. Humidity is %${humidity}.`);
     callback(null, data);
   });
 };
